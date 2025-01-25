@@ -1,3 +1,4 @@
+
 /* Estilos generales */
 body {
     margin: 0;
@@ -45,15 +46,13 @@ header.dark, footer.dark {
     background-color: inherit;
     color: inherit;
     border: 1px solid currentColor;
-    padding: 0.25rem 2rem; /* Aumenta el padding derecho para separar más la flecha */
+    padding: 0.25rem 2rem;
     border-radius: 0.25rem;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none; /* Oculta la flecha predeterminada */
-    font-size: 1rem; /* Ajusta el tamaño del texto */
-    position: relative;
-    z-index: 1;
+    appearance: none;
+    font-size: 1rem;
 }
 
 /* Centrar "Hellen" */
@@ -71,14 +70,28 @@ h1 {
     font-weight: bold;
 }
 
+/* Animación interactiva de "Hellen" */
+.interactive-text {
+    font-size: 5rem;
+    font-weight: 700;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    color: #8B0000; /* Rojo vino */
+}
+
+.interactive-text:hover {
+    transform: scale(1.1);
+    text-shadow: 0 5px 15px rgba(139, 0, 0, 0.6);
+    color: #b22222; /* Rojo más brillante */
+}
+
 /* Menú */
 .menu {
     display: none;
     position: absolute;
     right: 1rem;
     top: 4rem;
-    background-color: white; /* Siempre fondo blanco */
-    color: black; /* Siempre texto negro */
+    background-color: white;
+    color: black;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -86,21 +99,24 @@ h1 {
     z-index: 1000;
 }
 
-/* Mostrar el menú cuando está activo */
 .menu.show {
     display: block;
 }
 
-/* Estilo de los enlaces del menú */
-.menu a {
+.menu-item {
     text-decoration: none;
-    color: black; /* Siempre texto negro */
+    color: black;
     display: block;
     padding: 0.5rem 0;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.menu a:hover {
-    text-decoration: underline;
+.menu-item:hover {
+    background-color: #f8f9fa; /* Fondo claro al pasar el mouse */
+    color: #007bff; /* Azul bootstrap */
+    transform: translateX(5px); /* Pequeño desplazamiento al pasar el mouse */
 }
 
 /* Botón de menú */
@@ -117,6 +133,8 @@ footer {
     padding: 1rem;
     font-size: 0.9rem;
 }
+
+
 
 
 
