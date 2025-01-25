@@ -1,0 +1,129 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: #121212; /* Gris oscuro */
+    color: white;
+}
+
+/* Header y Footer */
+header, footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header.light, footer.light {
+    background-color: white;
+    color: black;
+}
+
+header.dark, footer.dark {
+    background-color: #1f1f1f; /* Gris más oscuro */
+    color: white;
+}
+
+/* Botón de tema */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-switcher select {
+    background-color: inherit;
+    color: inherit;
+    border: 1px solid currentColor;
+    padding: 0.25rem 2rem; /* Aumenta el padding derecho para separar más la flecha */
+    border-radius: 0.25rem;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /* Oculta la flecha predeterminada */
+    font-size: 1rem; /* Ajusta el tamaño del texto */
+    position: relative;
+    z-index: 1;
+}
+
+/* Centrar "Hellen" */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* Menú */
+.menu {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 4rem;
+    background-color: white; /* Siempre fondo blanco */
+    color: black; /* Siempre texto negro */
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+}
+
+/* Mostrar el menú cuando está activo */
+.menu.show {
+    display: block;
+}
+
+/* Estilo de los enlaces del menú */
+.menu a {
+    text-decoration: none;
+    color: black; /* Siempre texto negro */
+    display: block;
+    padding: 0.5rem 0;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+/* Botón de menú */
+.menu-toggle {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Footer centrado */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+
