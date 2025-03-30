@@ -1,4 +1,4 @@
-<header class="py-3 bg-light">
+<header class="py-3 bg-light"> 
     <div class="container d-flex justify-content-between align-items-center">
         <!-- Selector de tema -->
         <div class="theme-switcher d-flex align-items-center">
@@ -11,12 +11,17 @@
         
         <!-- Menú desplegable -->
         <nav>
-            <button class="btn btn-outline-secondary menu-toggle" onclick="toggleMenu()">&#9776;</button>
+            <button class="menu-toggle btn btn-outline-secondary" onclick="toggleMenu()">
+                <span class="menu-icon">&#9776;</span>
+            </button>
             <ul class="menu list-unstyled bg-light p-2 mt-2 rounded shadow d-none">
-                <li><a href="messages.html" class="d-block py-1 text-decoration-none">Textos</a></li>
-                <li><a href="images.html" class="d-block py-1 text-decoration-none">Imágenes</a></li>
+                <li><a href="messages.html" class="d-block py-1 text-decoration-none menu-item">Textos</a></li>
+                <li><a href="images.html" class="d-block py-1 text-decoration-none menu-item">Imágenes</a></li>
+                <li><a href="music.html" class="d-block py-1 text-decoration-none menu-item">Música</a></li>
+                <li><a href="proposal.html" class="d-block py-1 text-decoration-none menu-item">Propuesta</a></li>
             </ul>
         </nav>
     </div>
 </header>
+
 

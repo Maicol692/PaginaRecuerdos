@@ -70,20 +70,6 @@ h1 {
     font-weight: bold;
 }
 
-/* Animación interactiva de "Hellen" */
-.interactive-text {
-    font-size: 5rem;
-    font-weight: 700;
-    transition: transform 0.3s ease, text-shadow 0.3s ease;
-    color: #8B0000; /* Rojo vino */
-}
-
-.interactive-text:hover {
-    transform: scale(1.1);
-    text-shadow: 0 5px 15px rgba(139, 0, 0, 0.6);
-    color: #b22222; /* Rojo más brillante */
-}
-
 /* Menú */
 .menu {
     display: none;
@@ -133,6 +119,53 @@ footer {
     padding: 1rem;
     font-size: 0.9rem;
 }
+
+/* Estilos base */
+.illuminated-text {
+    display: inline-block;
+    font-size: 5rem;
+    font-weight: 700;
+    color: #8B0000; /* Rojo vino */
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.8);
+    transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Animación de iluminación (Solo tonos de rojo) */
+@keyframes illuminate {
+    0%   { color: #8B0000; text-shadow: 0 0 10px rgba(139, 0, 0, 0.8); }
+    25%  { color: #B22222; text-shadow: 0 0 15px rgba(178, 34, 34, 0.9); }
+    50%  { color: #DC143C; text-shadow: 0 0 20px rgba(220, 20, 60, 1); }
+    75%  { color: #B22222; text-shadow: 0 0 15px rgba(178, 34, 34, 0.9); }
+    100% { color: #8B0000; text-shadow: 0 0 10px rgba(139, 0, 0, 0.8); }
+}
+
+/* Aplicar la animación a cada letra con diferente retraso */
+.illuminated-text span {
+    display: inline-block;
+    animation: illuminate 5s infinite ease-in-out;
+}
+
+.illuminated-text span:nth-child(1) { animation-delay: 0s; }
+.illuminated-text span:nth-child(2) { animation-delay: 0.5s; }
+.illuminated-text span:nth-child(3) { animation-delay: 1s; }
+.illuminated-text span:nth-child(4) { animation-delay: 1.5s; }
+.illuminated-text span:nth-child(5) { animation-delay: 2s; }
+.illuminated-text span:nth-child(6) { animation-delay: 2.5s; }
+.illuminated-text span:nth-child(7) { animation-delay: 3s; }
+.illuminated-text span:nth-child(8) { animation-delay: 3.5s; }
+
+/* Interacción al pasar el mouse */
+.illuminated-text:hover {
+    transform: scale(1.1);
+    text-shadow: 0 5px 15px rgba(139, 0, 0, 0.6);
+    color: #b22222; /* Rojo más brillante */
+}
+
+/* Detener animación de iluminación cuando el mouse pasa por encima */
+.illuminated-text:hover span {
+    animation-play-state: paused;
+}
+
 
 
 

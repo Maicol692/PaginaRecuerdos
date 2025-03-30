@@ -1,4 +1,4 @@
-// Alternar el tema claro y oscuro
+// Alternar entre temas claro y oscuro
 function toggleTheme() {
     const body = document.body;
     const themeSelector = document.getElementById('theme');
@@ -13,9 +13,13 @@ function toggleTheme() {
         body.classList.add('light');
     }
 
-    // Actualizar colores del selector de tema
-    themeSelector.style.backgroundColor = window.getComputedStyle(body).backgroundColor;
-    themeSelector.style.color = window.getComputedStyle(body).color;
+    // Actualizar los colores del selector de tema
+    const computedStyles = window.getComputedStyle(body);
+    themeSelector.style.backgroundColor = computedStyles.backgroundColor;
+    themeSelector.style.color = computedStyles.color;
+
+    // Guardar el tema seleccionado en localStorage
+    localStorage.setItem('theme', selectedTheme);
 }
 
 // Mostrar u ocultar el menú desplegable
@@ -24,12 +28,12 @@ function toggleMenu() {
     menu.classList.toggle('show');
 }
 
-// Configuración inicial: establecer tema predeterminado
+// Configuración inicial: establecer tema predeterminado y eventos
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const themeSelector = document.getElementById('theme');
 
-    // Detectar tema previamente seleccionado (almacenado en localStorage)
+    // Detectar el tema previamente seleccionado (almacenado en localStorage)
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         body.classList.add(savedTheme);
@@ -38,14 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.add('light'); // Tema predeterminado
     }
 
-    // Actualizar colores del selector
-    themeSelector.style.backgroundColor = window.getComputedStyle(body).backgroundColor;
-    themeSelector.style.color = window.getComputedStyle(body).color;
+    // Actualizar los colores del selector al cargar la página
+    const computedStyles = window.getComputedStyle(body);
+    themeSelector.style.backgroundColor = computedStyles.backgroundColor;
+    themeSelector.style.color = computedStyles.color;
 
-    // Guardar el tema seleccionado en localStorage
-    themeSelector.addEventListener('change', () => {
-        localStorage.setItem('theme', themeSelector.value);
-    });
+    // Agregar evento para guardar el tema seleccionado al cambiar
+    themeSelector.addEventListener('change', toggleTheme);
 });
 
 

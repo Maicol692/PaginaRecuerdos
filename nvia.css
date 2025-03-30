@@ -1,0 +1,108 @@
+/* General */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Header corregido */
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: var(--header-bg);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Botones */
+nav a, nav button {
+    text-decoration: none;
+    color: var(--button-text);
+    background-color: var(--button-bg);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover, nav button:hover {
+    background-color: var(--button-hover-bg);
+    transform: scale(1.05);
+}
+
+/* Título con animaciones suaves */
+.animated-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--highlight);
+    margin-top: 80px; /* Para que no choque con el header */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mensaje de amor */
+.love-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 20px auto;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards 0.5s;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Light Mode Variables */
+:root {
+    --background: #fdfdfd;
+    --text-color: #333;
+    --header-bg: #ffffff;
+    --button-bg: #ff4d4d;
+    --button-text: #fff;
+    --button-hover-bg: #ff3333;
+    --highlight: #ff4d4d;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --background: #121212;
+    --text-color: #f4f4f4;
+    --header-bg: #1e1e1e;
+    --button-bg: #b22222;
+    --button-hover-bg: #ff6347;
+}
+
+

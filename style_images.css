@@ -4,9 +4,10 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: var(--background);
     color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Header */
 header nav {
     display: flex;
     justify-content: space-between;
@@ -22,60 +23,127 @@ header nav a {
     color: var(--link-color);
     margin-right: 15px;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 header nav a:hover {
     color: var(--link-hover-color);
+    transform: scale(1.05);
 }
 
 header nav button {
     background-color: var(--button-bg);
     color: var(--button-text);
     border: none;
-    padding: 8px 12px;
+    padding: 10px 15px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
     font-size: 0.9rem;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 header nav button:hover {
     background-color: var(--button-hover-bg);
     color: var(--button-hover-text);
+    transform: translateY(-2px);
 }
 
+/* Contenido principal */
 main {
     padding: 20px;
     text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
+/* Efecto de parallax en el título */
 h1 {
     margin-bottom: 20px;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--highlight);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+/* Animación flotante */
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(5px); }
 }
 
 /* Gallery Styling */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Imagenes con animación */
 .image {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.3s ease;
+    cursor: pointer;
 }
 
+/* Efecto en hover */
 .image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    opacity: 0.9;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    animation: zoomIn 0.5s ease-in-out;
+}
+
+/* Animación de zoom */
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Mostrar lightbox */
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Light Mode Variables */
@@ -106,3 +174,13 @@ body.dark-mode {
     --button-hover-bg: #ff6347;
     --button-hover-text: #1e1e1e;
 }
+
+/* Estilo en modo oscuro para las imágenes */
+body.dark-mode .image {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .image:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.25);
+}
+
